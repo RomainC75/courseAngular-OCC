@@ -23,4 +23,8 @@ export class FaceSnapComponent implements OnInit{
       this.alreadySnapped=false
     }
   }
+
+  getColor(){
+    return `rgb(0,${this.faceSnap.snaps<256 ? this.faceSnap.snaps : 255},0)`
+  }
 }

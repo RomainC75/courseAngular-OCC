@@ -5,7 +5,7 @@
   <p>{{ faceSnap.description }}</p>
 
   <p *ngIf="faceSnap.location">Photo prise à {{faceSnap.location}}!</p>
-  <p *ngIf="!alreadySnapped; else elseBlock">
+  <p *ngIf="!alreadySnapped; else elseBlock" [ngStyle]="{color:getColor()}">
     🤌 <button (click)="onAddSnap()">AddSnap</button> {{ faceSnap.snaps }}
   </p>
   <ng-template #elseBlock>
