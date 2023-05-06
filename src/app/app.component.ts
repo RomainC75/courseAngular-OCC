@@ -13,26 +13,28 @@ export class AppComponent implements OnInit{
   constructor(){ }
 
   ngOnInit(){
-    this.mySnap1 = new FaceSnap(
-      "Archibald",
-      "Super",
-      new Date(),
-      5,
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4HjaXYfBJyxxdFySFZfbZ373t4Yw9mIcuPA&usqp=CAU",
-    )
-    this.mySnap2 = new FaceSnap(
-      "Boby",
-      "Genial",
-      new Date(),
-      23,
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4HjaXYfBJyxxdFySFZfbZ373t4Yw9mIcuPA&usqp=CAU",
-    )
-    this.mySnap3 = new FaceSnap(
-      "mlkjqdsf",
-      "Super-top",
-      new Date(),
-      34,
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4HjaXYfBJyxxdFySFZfbZ373t4Yw9mIcuPA&usqp=CAU",
-    )
+    this.mySnap1 = {
+      title: 'Archibald',
+      description: 'Mon meilleur ami depuis tout petit !',
+      imageUrl: 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
+      createdDate: new Date(),
+      snaps: 0,
+      location: "Paris"
+    };
+    this.mySnap2 = {
+      title: 'Three Rock Mountain',
+      description: 'Un endroit magnifique pour les randonnées.',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg',
+      createdDate: new Date(),
+      snaps: 0,
+    };
+    this.mySnap3 = {
+      title: 'Un bon repas',
+      description: 'Mmmh que c\'est bon !',
+      imageUrl: 'https://wtop.com/wp-content/uploads/2020/06/HEALTHYFRESH.jpg',
+      createdDate: new Date(),
+      snaps: 0,
+      location: "Dublin"
+    };
   }
 }
