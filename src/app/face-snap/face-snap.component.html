@@ -1,1 +1,13 @@
-<p>face-snap works!</p>
+<div class="face-snap-card">
+  <h2>{{ title }}</h2>
+  <p>Mis en ligne le {{ createdDate }}</p>
+  <img [src]="imageUrl" [alt]="title" />
+  <p>{{ description }}</p>
+
+  <p *ngIf="!alreadySnapped; else elseBlock">
+    🤌 <button (click)="onAddSnap()">AddSnap</button> {{ snaps }}
+  </p>
+  <ng-template #elseBlock>
+    <p>🤌 <button (click)="onAddSnap()">RemovSnap</button> {{ snaps }}</p>
+  </ng-template>
+</div>
