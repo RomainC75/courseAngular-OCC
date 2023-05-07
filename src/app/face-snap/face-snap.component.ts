@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FaceSnap } from '../models/face-snap.model';
+import { FaceSnapsService } from '../services/face-snaps.service';
 
 @Component({
   selector: 'app-face-snap',
@@ -9,6 +10,8 @@ import { FaceSnap } from '../models/face-snap.model';
 export class FaceSnapComponent implements OnInit{
   alreadySnapped!: boolean
   @Input('faceSnap')  faceSnap!: FaceSnap
+
+  constructor(private faceSnapService: FaceSnapsService){}
   
   ngOnInit(): void {
     this.alreadySnapped=false
@@ -16,10 +19,14 @@ export class FaceSnapComponent implements OnInit{
 
   onAddSnap(){
     if(!this.alreadySnapped){
-      this.faceSnap.snaps++
+      // this.faceSnap.snaps++
+      this.faceSnapService.snapFaceSnapById(this.faceSnap.id, 'snap')
+      // this.faceSnapService.snapFaceSnapById(this.faceSnap.id,true)
       this.alreadySnapped=true
     }else{
-      this.faceSnap.snaps--
+      // this.faceSnap.snaps--
+      this.faceSnapService.snapFaceSnapById(this.faceSnap.id, 'unsnap')
+      // this.faceSnapService.snapFaceSnapById(this.faceSnap.id,false)
       this.alreadySnapped=false
     }
   }
