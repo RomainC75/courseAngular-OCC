@@ -1,17 +1,5 @@
-<div class="face-snap-card" [ngClass]="{snapped:alreadySnapped}">
-    <h2>{{ faceSnap.title | uppercase }}</h2>
-    <!-- <h2>{{ faceSnap.title | lowercase }}</h2>
-    <h2>{{ faceSnap.title | titlecase }}</h2> -->
-  <p>Mis en ligne le {{ faceSnap.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
-  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" />
+<div class="face-snap-card" [ngClass]="{ snapped: alreadySnapped }" >
+  <h2>{{ faceSnap.title | uppercase }}</h2>
   <p>{{ faceSnap.description }}</p>
-
-
-  <p *ngIf="faceSnap.location">Photo prise à {{faceSnap.location}}!</p>
-  <p *ngIf="!alreadySnapped; else elseBlock" [ngStyle]="{color:getColor()}">
-    🤌 <button (click)="onAddSnap()">AddSnap</button> {{ faceSnap.snaps }}
-  </p>
-  <ng-template #elseBlock>
-    <p>🤌 <button (click)="onAddSnap()">RemovSnap</button> {{ faceSnap.snaps }}</p>
-  </ng-template>
+  <button (click)="onContinue()">Details </button>
 </div>

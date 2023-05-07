@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FaceSnap } from '../models/face-snap.model';
 import { FaceSnapsService } from '../services/face-snaps.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-face-snap',
@@ -11,7 +12,7 @@ export class FaceSnapComponent implements OnInit{
   alreadySnapped!: boolean
   @Input('faceSnap')  faceSnap!: FaceSnap
 
-  constructor(private faceSnapService: FaceSnapsService){}
+  constructor(private faceSnapService: FaceSnapsService, private router: Router){}
   
   ngOnInit(): void {
     this.alreadySnapped=false
@@ -33,5 +34,9 @@ export class FaceSnapComponent implements OnInit{
 
   getColor(){
     return `rgb(0,${this.faceSnap.snaps<256 ? this.faceSnap.snaps : 255},0)`
+  }
+
+  onContinue(){
+    this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`)
   }
 }
