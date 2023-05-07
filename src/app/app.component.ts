@@ -7,8 +7,5 @@ import { FaceSnapsService } from './services/face-snaps.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  
   constructor(){ }
-
-  
 }
